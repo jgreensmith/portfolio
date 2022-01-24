@@ -1,6 +1,5 @@
-import { Toolbar } from "@mui/material";
-//import Hero from "../components/hero";
 import Layout from "../components/Layout";
+//import Hero from "../components/hero";
 
 
 export default function Home() {

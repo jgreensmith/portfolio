@@ -10,9 +10,11 @@ const config = {
    *
    * https://nextjs.org/docs/basic-features/environment-variables
    **/
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+  dataset: "production",
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   useCdn: process.env.NODE_ENV === "production",
+  apiVersion: '2022-01-24',
+  
   
   /**
    * Set useCdn to `false` if your application require the freshest possible
