@@ -1,4 +1,4 @@
-import { Button, Card } from '@mui/material';
+import { Button, Card, ImageListItemBar } from '@mui/material';
 import { createTheme, styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 
@@ -112,6 +112,13 @@ export const FilterBox = styled(Box)(({ theme }) => ({
   borderRadius: 7,
   border: '2px solid black',
  
+}));
+export const Overlay = styled('div')(({theme}) => ({
+  opacity: 0,
+  ":hover": {
+    opacity: 1
+  },
+  width: '100%',
 }));
 
 // export const CustomSlide = styled('div')({
