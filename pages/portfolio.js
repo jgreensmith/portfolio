@@ -12,7 +12,7 @@ const Portfolio = ({ portfolioData }) => {
                 <ImageList variant="masonry" columns={{ xs: 1, vs: 2, sm: 3, md: 4 }} gap={8}>
                     {portfolioData.map((portfolio, index) => (
                         <Slide direction="up" in={true}>
-                            <Link href={portfolio.href}>
+                            <Link href={portfolio.href} target="_blank" rel="noreferrer" >
                                 <ImageListItem key={index}>  
                                     <Paper elavation={7}
                                     sx={{position: 'relative'}}
