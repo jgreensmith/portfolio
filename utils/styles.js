@@ -80,7 +80,8 @@ export const StyledImg = styled("img")({
 
 export const PortfolioImg = styled("img")({
   width: '100%',
-  maxWidth: '400px',
+  height: '100%',
+  maxWidth: '300px',
 });
 export const ProfileImg = styled("img")({
   borderRadius: '50%',
@@ -130,6 +131,8 @@ export const Overlay = styled('div')(({theme}) => ({
   top: 0,
   zIndex: 1000,
   position: 'absolute',
+  textAlign: 'center',
+  paddingTop: '50%',
 }));
 
 // export const CustomSlide = styled('div')({

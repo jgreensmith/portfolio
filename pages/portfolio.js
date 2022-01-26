@@ -8,14 +8,23 @@ const Portfolio = ({ portfolioData }) => {
     console.log(portfolioData);
     return(
         <Layout title="Portfolio">
-            <Container maxWidth="xl">
-                <ImageList variant="masonry" columns={{ xs: 1, vs: 2, sm: 3, md: 4 }} gap={8}>
+            <Container maxWidth="lg"  >
+                <Masonry columns={{ xs: 2, sm: 3, md: 4}} spacing={0} sx={{display: 'flex', alignContent: 'center'}} >
                     {portfolioData.map((portfolio, index) => (
-                        <Slide direction="up" in={true}>
-                            <Link href={portfolio.href} target="_blank" rel="noreferrer" >
-                                <ImageListItem key={index}>  
-                                    <Paper elavation={7}
-                                    sx={{position: 'relative'}}
+                        <Stack key={index}  >
+                            <Slide direction="up" in={true}>
+                                <Link href={portfolio.href} target="_blank" rel="noreferrer" >
+                                    <Paper 
+                                        elevation={8}
+                                        sx={{
+                                            position: 'relative', 
+                                            backgroundImage: `url("${urlFor(portfolio.portfolioImage).quality(90).fit("min").url()}")`,
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center center !important',
+                                            maxWidth: '300px',
+                                            margin: 2,
+                                        }}
+
                                     >
                                         <PortfolioImg
                                             src={urlFor(portfolio.portfolioImage).quality(90).fit("min").url()}
@@ -24,18 +33,24 @@ const Portfolio = ({ portfolioData }) => {
                                         />
                                         
                                         <Overlay>
-                                            <Typography component="h5">{portfolio.alt}</Typography>
+                                            <Typography 
+                                                component="h5" 
+                                                sx={{
+                                                    p: 2,
+                                                    color: '#fff',
+                                                    backgroundColor: 'black'
+                                                }}
+                                            >
+                                                {portfolio.alt}
+                                            </Typography>
                                         </Overlay>
                                     </Paper>
-                                        
-                                    
-                
-                                </ImageListItem>
-                            </Link>
-                        </Slide>                        
+                                </Link>
+                            </Slide>   
+                        </Stack>                     
                     ))}
                     
-                </ImageList>
+                </Masonry>
             </Container>
         </Layout>
     )
