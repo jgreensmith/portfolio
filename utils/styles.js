@@ -125,14 +125,14 @@ export const Overlay = styled('div')(({theme}) => ({
     opacity: 1
   },
   width: '100%',
-  height: '100%',
+  //height: '100%',
   float: 'left',
-  left: 0,
-  top: 0,
+  bottom: 0,
+  right: 0,
   zIndex: 1000,
   position: 'absolute',
   textAlign: 'center',
-  paddingTop: '50%',
+  paddingTop: '100%',
 }));
 
 // export const CustomSlide = styled('div')({
