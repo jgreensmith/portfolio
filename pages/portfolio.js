@@ -38,7 +38,8 @@ const Portfolio = ({ portfolioData }) => {
                                                 sx={{
                                                     p: 2,
                                                     color: '#fff',
-                                                    backgroundColor: 'black'
+                                                    backgroundColor: 'background.dark',
+                                                    opacity: 0.8
                                                 }}
                                             >
                                                 {portfolio.alt}
