@@ -1,8 +1,8 @@
-import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper } from "@mui/material";
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
 import { sanityClient, urlFor } from "../sanity";
-import { Overlay } from "../utils/styles";
+import { Overlay, PortfolioImg } from "../utils/styles";
 
 const Portfolio = ({ portfolioData }) => {
     console.log(portfolioData);
@@ -14,15 +14,20 @@ const Portfolio = ({ portfolioData }) => {
                         <Slide direction="up" in={true}>
                             <Link href={portfolio.href}>
                                 <ImageListItem key={index}>  
-                                    <img
-                                        src={urlFor(portfolio.portfolioImage).quality(90).fit("min").url()}
-                                        alt={portfolio.alt}
-                                        loading="lazy"
-                                    />
-                                    
-                                    <Overlay>
-                                        <Typography component="h5">{portfolio.alt}</Typography>
-                                    </Overlay>
+                                    <Paper elavation={7}
+                                    sx={{position: 'relative'}}
+                                    >
+                                        <PortfolioImg
+                                            src={urlFor(portfolio.portfolioImage).quality(90).fit("min").url()}
+                                            alt={portfolio.alt}
+                                            loading="lazy"
+                                        />
+                                        
+                                        <Overlay>
+                                            <Typography component="h5">{portfolio.alt}</Typography>
+                                        </Overlay>
+                                    </Paper>
+                                        
                                     
                 
                                 </ImageListItem>

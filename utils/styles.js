@@ -77,6 +77,11 @@ export const ThumbnailButton = styled(Button)(({ theme }) => ({
 export const StyledImg = styled("img")({
   width: '100%',
 });
+
+export const PortfolioImg = styled("img")({
+  width: '100%',
+  maxWidth: '400px',
+});
 export const ProfileImg = styled("img")({
   borderRadius: '50%',
 });
@@ -119,6 +124,12 @@ export const Overlay = styled('div')(({theme}) => ({
     opacity: 1
   },
   width: '100%',
+  height: '100%',
+  float: 'left',
+  left: 0,
+  top: 0,
+  zIndex: 1000,
+  position: 'absolute',
 }));
 
 // export const CustomSlide = styled('div')({
