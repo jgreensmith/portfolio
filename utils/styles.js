@@ -52,6 +52,19 @@ export const theme = createTheme({
   },
  
 });
+//buttons
+
+export const FilterButton = styled(Button)(({ theme }) => ({
+  
+  fontSize: '1.8rem',
+  color: theme.palette.primary.text,
+  textTransform: 'none',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center center !important',
+  width: '135px',
+  boxSizing: 'border-box',
+  position: 'relative',
+}));
 
 export const MainButton = styled(Button)({
   
@@ -74,6 +87,8 @@ export const ThumbnailButton = styled(Button)(({ theme }) => ({
   boxSizing: 'border-box',
 }));
 
+//images
+
 export const StyledImg = styled("img")({
   width: '100%',
 });
@@ -92,17 +107,7 @@ export const CartImg = styled("img")({
 
 });
 
-export const FilterButton = styled(Button)(({ theme }) => ({
-  
-  fontSize: '1.8rem',
-  color: theme.palette.primary.text,
-  textTransform: 'none',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center center !important',
-  width: '135px',
-  boxSizing: 'border-box',
-  position: 'relative',
-}));
+//containers
 
 export const FilterBox = styled(Box)(({ theme }) => ({
   
@@ -135,15 +140,23 @@ export const Overlay = styled('div')(({theme}) => ({
   paddingTop: '100%',
 }));
 
-// export const CustomSlide = styled('div')({
-//   minHeight: '85vh',
-//   backgroundSize: 'cover',
-//   backgroundPosition: 'center',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   flexDirection: 'column',
-//   fontcolor: '#fff',
-//   width: '100%',
-//   zIndex: 1
+//hero section
 
-// });
+export const HeroBox = styled('div')({
+  position: 'relative !important'
+});
+
+export const HeroSlide = styled('div')({
+  minHeight: '85vh',
+  backgroundSize: 'cover',
+  backgroundPosition: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  backgroundColor: 'inherit',
+  paddingTop: '3rem',
+  paddingBottom: '3rem',
+  width: '100%',
+});
+
