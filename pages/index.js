@@ -1,13 +1,35 @@
 import Layout from "../components/Layout";
 import Hero from "../components/hero";
+import { sanityClient } from "../sanity";
 
 
-export default function Home() {
+const Home = ({heroData}) => {
   return (
     <Layout title="Home">
-      <Hero />
+      <Hero heroData={heroData} />
       
 
     </Layout>
   )
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "hero"]'
+  const heroData = await sanityClient.fetch(query)
+
+  if (!heroData.length) {
+      return {
+          props: {
+              heroData: [],
+          },
+      }
+  } else {
+      return {
+          props: {
+              heroData,
+          },
+      }
+  }
+}
+
+export default Home;

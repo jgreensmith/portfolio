@@ -1,11 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper';
 
-
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
 import { HeroBox, HeroSlide } from '../utils/styles';
+import { urlFor } from '../sanity';
 
 const params = {
     slidesPerView: 'auto',
@@ -20,23 +20,19 @@ const params = {
       crossFade: true
     }
 };
-const images = [
-    '/images/home-1.jpg',
-    '/images/home-2.jpg',
-    '/images/home-3.jpg',
-    '/images/home-4.jpg',
-];
 
-export default () => {
+const Hero = ({ heroData }) => {
+    console.log(heroData);
     return (
         <HeroBox>
 
             <Swiper modules={[EffectFade, Autoplay]} {...params} effect='fade'>
-            {images.map((image, index) => (
+            {heroData.map((hero, index) => (
                 <SwiperSlide key={index}>
                     <HeroSlide
+                        title={hero.alt}
                         sx={{
-                            backgroundImage: `url("${image}")`
+                            backgroundImage: `url("${urlFor(hero.heroImage).quality(90).fit("min").url()}")`
                         }} 
                     >
 
@@ -47,3 +43,5 @@ export default () => {
         </HeroBox>
     )
 }
+
+export default Hero;
