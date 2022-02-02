@@ -33,7 +33,8 @@ const Hero = ({ heroData }) => {
             {heroData.map((hero, index) => (
                 <SwiperSlide key={index}>
                     <HeroSlide
-                        title={hero.alt}
+                        role="img"
+                        aria-label={hero.alt}
                         sx={{
                             backgroundImage: `url("${urlFor(hero.heroImage).quality(90).fit("min").url()}")`
                         }} 
