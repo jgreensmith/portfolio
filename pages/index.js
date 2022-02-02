@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import Hero from "../components/hero";
+import Hero from "../components/Hero";
 import { sanityClient } from "../sanity";
 
 
