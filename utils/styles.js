@@ -109,6 +109,10 @@ export const CartImg = styled("img")({
 
 //containers
 
+export const FooterBox = styled('div')({
+  
+});
+
 export const FilterBox = styled(Box)(({ theme }) => ({
   
   background: theme.palette.secondary.main,

@@ -64,7 +64,6 @@ const Navbar = (props) => {
     const links = {
         about: "About",
         portfolio: "Portfolio",
-        contact: "Contact",
     }
 
     const drawer = (
