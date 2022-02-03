@@ -7,10 +7,10 @@ const ButtonRoot = React.forwardRef(function ButtonRoot(props, ref) {
   const { children, ...other } = props;
 
   return (
-    <svg width="150" height="50" {...other} ref={ref}>
-      <polygon points="0,50 0,0 150,0 150,50" className="bg" />
-      <polygon points="0,50 0,0 150,0 150,50" className="borderEffect" />
-      <foreignObject x="0" y="0" width="150" height="50">
+    <svg width="300" height="50" {...other} ref={ref}>
+      <polygon points="0,50 0,0 300,0 300,50" className="bg" />
+      <polygon points="0,50 0,0 300,0 300,50" className="borderEffect" />
+      <foreignObject x="0" y="0" width="300" height="50">
         <div className="content">{children}</div>
       </foreignObject>
     </svg>
@@ -50,14 +50,14 @@ const CustomButtonRoot = styled(ButtonRoot)(
     stroke: var(--main-color);
     stroke-width: 1;
     filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
-    fill: transparent;
+    fill: var(--hover-color);
   }
 
   & .borderEffect {
     stroke: var(--main-color);
     stroke-width: 2;
-    stroke-dasharray: 150 600;
-    stroke-dashoffset: 150;
+    stroke-dasharray: 300 600;
+    stroke-dashoffset: 300;
     fill: transparent;
   }
 
@@ -65,10 +65,12 @@ const CustomButtonRoot = styled(ButtonRoot)(
   &.${buttonUnstyledClasses.focusVisible} {
     .borderEffect {
       stroke-dashoffset: -600;
+      stroke-width: 3;
+
     }
 
     .bg {
-      fill: var(--hover-color);
+      fill: transparent;
     }
   }
 
@@ -111,8 +113,6 @@ const SvgButton = React.forwardRef(function SvgButton(props, ref) {
     return <ButtonUnstyled {...props} component={CustomButtonRoot} ref={ref} />;
   });
   
-  // export default function UnstyledButtonCustom() {
-  //   return <SvgButton>Button</SvgButton>;
-  // }
+  
 
   export default SvgButton;
