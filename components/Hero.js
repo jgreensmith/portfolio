@@ -41,22 +41,22 @@ const Hero = ({ heroData }) => {
                         }} 
                     >
                         <SvgButton sx={{mr: '9px', mb: 3}} >
-                            <Typography color='#000' variant='h6' sx={{textTransform: 'capitalize'}} >
+                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                 Contact Us
                             </Typography>
                         </SvgButton>
                         <SvgButton sx={{mr: '9px', mb: 3}} >
-                            <Typography color='#000' variant='h6' sx={{textTransform: 'capitalize'}} >
+                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                 Contact Us
                             </Typography>
                         </SvgButton>
                         <SvgButton sx={{mr: '9px', mb: 3}} >
-                            <Typography color='#000' variant='h6' sx={{textTransform: 'capitalize'}} >
+                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                 Contact Us
                             </Typography>
                         </SvgButton>
                         <SvgButton sx={{mr: '9px', mb: 3}} >
-                            <Typography color='#000' variant='h6' sx={{textTransform: 'capitalize'}} >
+                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                 Contact Us
                             </Typography>
                         </SvgButton>

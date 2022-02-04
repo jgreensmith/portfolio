@@ -19,26 +19,14 @@ const ButtonRoot = React.forwardRef(function ButtonRoot(props, ref) {
 
 ButtonRoot.propTypes = {
   children: PropTypes.node,
-};
-
-const blue = {
-  50: '#F0F7FF',
-  100: '#C2E0FF',
-  200: '#99CCF3',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-  800: '#004C99',
-  900: '#003A75',
-};
+}
 
 const CustomButtonRoot = styled(ButtonRoot)(
   ({ theme }) => `
   overflow: visible;
   cursor: pointer;
   --main-color: ${theme.palette.primary.main};
-  --hover-color: ${theme.palette.mode === 'light' ? blue[50] : blue[900]};
-  --active-color: ${theme.palette.mode === 'light' ? blue[100] : blue[800]};
+  
 
   & polygon {
     fill: transparent;
@@ -48,14 +36,14 @@ const CustomButtonRoot = styled(ButtonRoot)(
   
   & .bg {
     stroke: var(--main-color);
-    stroke-width: 1;
+    stroke-width: 2;
     filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
     fill: ${theme.palette.primary.main};
     opacity: 0.4
   }
 
   & .borderEffect {
-    stroke: ${theme.palette.secondary.main};
+    stroke: ${theme.palette.primary.light};
     stroke-width: 0;
     stroke-dasharray: 300 600;
     stroke-dashoffset: 300;
@@ -65,7 +53,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
   &:hover,
   &.${buttonUnstyledClasses.focusVisible} {
     .borderEffect {
-      stroke: ${theme.palette.secondary.main};
+      stroke: ${theme.palette.primary.light};
       stroke-dashoffset: -600;
       stroke-width: 3;
     }
