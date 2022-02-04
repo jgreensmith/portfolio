@@ -8,6 +8,8 @@ import { HeroBox, HeroSlide } from '../utils/styles';
 import { urlFor } from '../sanity';
 import SvgButton from './svg/ButtonSvg';
 import { Typography } from '@mui/material';
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 //import Footer from './Footer';
 
 
@@ -42,20 +44,20 @@ const Hero = ({ heroData }) => {
                     >
                         <SvgButton sx={{mr: '9px', mb: 3}} >
                             <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                Contact Us
+                                About MCR Digital
                             </Typography>
                         </SvgButton>
                         <SvgButton sx={{mr: '9px', mb: 3}} >
                             <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                Contact Us
+                                Partnered Companies
                             </Typography>
                         </SvgButton>
-                        <SvgButton sx={{mr: '9px', mb: 3}} >
+                        <SvgButton sx={{mr: '9px', mb: 3}} href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" >
                             <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                Contact Us
+                                Instagram 
                             </Typography>
                         </SvgButton>
-                        <SvgButton sx={{mr: '9px', mb: 3}} >
+                        <SvgButton sx={{mr: '9px', mb: 3}}  >
                             <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                 Contact Us
                             </Typography>
