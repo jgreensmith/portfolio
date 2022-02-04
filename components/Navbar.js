@@ -97,8 +97,8 @@ const Navbar = (props) => {
                             <MenuIcon />
                         </IconButton>
                         <NextLink href="/">
-                            <MainButton sx={{ color: 'primary.text' }} >
-                                MCR Digitass
+                            <MainButton >
+                                MCR Digital
                             </MainButton>
                         </NextLink>
                         <List sx={{ display: { sm: "flex", xs: "none" }, ml: 'auto', mr: 3 }}>
@@ -108,7 +108,14 @@ const Navbar = (props) => {
                                         <ListItemText 
                                             primary={links[link]} 
                                             disableTypography={true} 
-                                            sx={{ fontSize: '1.2rem', color: 'primary.text' }}
+                                            sx={{ 
+                                                fontSize: '1.2rem', 
+                                                color: 'primary.text',
+                                                ":hover": { 
+                                                    background: 'none',
+                                                    color: 'secondary.main',
+                                                }, 
+                                            }}
                                         />
                                     </ListItemButton>
                                 </NextLink>

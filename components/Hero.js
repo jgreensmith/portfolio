@@ -7,6 +7,7 @@ import 'swiper/css/effect-fade';
 import { HeroBox, HeroSlide } from '../utils/styles';
 import { urlFor } from '../sanity';
 import SvgButton from './svg/ButtonSvg';
+//import Footer from './Footer';
 
 
 const params = {
@@ -38,12 +39,13 @@ const Hero = ({ heroData }) => {
                             backgroundImage: `url("${urlFor(hero.heroImage).quality(90).fit("min").url()}")`
                         }} 
                     >
-                        <SvgButton sx={{mr: '13px'}}>Test button</SvgButton>
+                        <SvgButton sx={{mr: '9px'}}>Test button</SvgButton>
                         
                     </HeroSlide>
                 </SwiperSlide>
             ))}
             </Swiper>
+            {/* <Footer/> */}
         </HeroBox>
     )
 }

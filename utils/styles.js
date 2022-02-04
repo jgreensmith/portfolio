@@ -22,21 +22,21 @@ export const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#ec407a',
+      main: '#021d37',
       light: '#ff77a9',
       dark: '#b4004e',
-      text: '#6a1b9a'
-
+      text: '#fff'
     },
     secondary: {
-      main: '#208080',
-      dark: '#283593'
+      main: '#ff0080',
+      dark: '#283593',
+      text: '#021d37'
     },
     error: {
       main: '#f04000',
     },
     background: {
-      default: '#ffffff',
+      default: '#f1f3fa',
       dark: '#021d37'
     },
   },
@@ -66,15 +66,16 @@ export const FilterButton = styled(Button)(({ theme }) => ({
   position: 'relative',
 }));
 
-export const MainButton = styled(Button)({
-  
+export const MainButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.primary.text, 
   fontSize: '1.8rem',
   ":hover": { 
-    background: 'none'
+    background: 'none',
+    color: theme.palette.secondary.main,
   },
   textTransform: 'none',
 
-});
+}));
 
 export const ThumbnailButton = styled(Button)(({ theme }) => ({
   height: '56px',

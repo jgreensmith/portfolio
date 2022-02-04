@@ -4,27 +4,27 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
-export default function Footer(props) {
+export default function Footer() {
   return (
 
     <Container maxWidth="100%" component="footer" 
-        sx={{ backgroundColor: 'background.dark' }}
+        sx={{ background: 'transparent' }}
     >
         <Box p={4} sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Typography variant="body2" color="background.default" align="center" sx={{pt: '4px'}}>
+            <Typography variant="body2" color="primary" align="center" sx={{pt: 1}}>
                 {'© '}
-                MCR-Digitass 2022
+                MCR-Digital 2022
                 {'.'}
             </Typography>
             <Box>
-                <Button variant="text" href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry">
+                <Button variant="text" href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry" >
                     Email
                 </Button>
-                <IconButton href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" >
-                    <InstagramIcon color='primary' />
+                <IconButton href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" color="primary" >
+                    <InstagramIcon  />
                 </IconButton>   
-                <IconButton href="https://www.linkedin.com/in/d%E2%80%99arcy-o%E2%80%99connor-b730a9152/" target="_blank" rel="noreferrer" >
-                    <LinkedInIcon color='primary' />
+                <IconButton href="https://www.linkedin.com/in/d%E2%80%99arcy-o%E2%80%99connor-b730a9152/" target="_blank" rel="noreferrer" color="primary" >
+                    <LinkedInIcon  />
                 </IconButton> 
             </Box>
 
