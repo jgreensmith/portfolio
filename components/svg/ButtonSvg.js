@@ -36,7 +36,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
   ({ theme }) => `
   overflow: visible;
   cursor: pointer;
-  --main-color: ${theme.palette.mode === 'light' ? blue[600] : blue[100]};
+  --main-color: ${theme.palette.primary.main};
   --hover-color: ${theme.palette.mode === 'light' ? blue[50] : blue[900]};
   --active-color: ${theme.palette.mode === 'light' ? blue[100] : blue[800]};
 
@@ -50,12 +50,13 @@ const CustomButtonRoot = styled(ButtonRoot)(
     stroke: var(--main-color);
     stroke-width: 1;
     filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
-    fill: var(--hover-color);
+    fill: ${theme.palette.primary.main};
+    opacity: 0.4
   }
 
   & .borderEffect {
-    stroke: var(--main-color);
-    stroke-width: 2;
+    stroke: ${theme.palette.secondary.main};
+    stroke-width: 0;
     stroke-dasharray: 300 600;
     stroke-dashoffset: 300;
     fill: transparent;
@@ -64,9 +65,9 @@ const CustomButtonRoot = styled(ButtonRoot)(
   &:hover,
   &.${buttonUnstyledClasses.focusVisible} {
     .borderEffect {
+      stroke: ${theme.palette.secondary.main};
       stroke-dashoffset: -600;
       stroke-width: 3;
-
     }
 
     .bg {
@@ -76,7 +77,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
 
   &:focus,
   &.${buttonUnstyledClasses.focusVisible} {
-    outline: 2px solid ${theme.palette.mode === 'dark' ? blue[400] : blue[200]};
+    outline: 4px solid ${theme.palette.primary.main};
     outline-offset: 2px;
   }
 
