@@ -53,12 +53,8 @@ const Navbar = (props) => {
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
-        lockScroll();
     };
-    const lockScroll = () => {
-        document.body.classList.toggle('lock-scroll');
-    }
-    //adds overflow: hidden to body 
+    
     
 
     const links = {
@@ -136,7 +132,6 @@ const Navbar = (props) => {
                     onClose={handleDrawerToggle}
                     ModalProps={{
                         keepMounted: true, // Better open performance on mobile.
-                        disableScrollLock: true,
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },

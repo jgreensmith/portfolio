@@ -15,7 +15,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-body.lock-scroll {
-  overflow-y: hidden;
-}
