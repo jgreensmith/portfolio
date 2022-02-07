@@ -1,12 +1,12 @@
 import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Link, Paper, Slide, Toolbar, Typography } from "@mui/material";
-import Layout from "../components/Layout";
-import { sanityClient, urlFor } from "../sanity";
+import Layout from "../../components/Layout";
+import { sanityClient, urlFor } from "../../sanity";
 //import UnstyledButtonCustom from "../components/svg/ButtonSvg";
-import { ProfileImg } from "../utils/styles";
+import { ProfileImg } from "../../utils/styles";
 
 
-const Services = ({servicesData}) => {
-  console.log(servicesData);
+const Services = ({serviceData}) => {
+  console.log(serviceData);
   return (
     <Layout title="Services" >
 
@@ -74,7 +74,7 @@ const Services = ({servicesData}) => {
         }}
       >
         <Grid container spacing={2} >
-          {servicesData.map((service, index) => (
+          {serviceData.map((service, index) => (
             <Grid item key={index} xs={12} vs={6} sm={4} >
               <Slide direction="up" in={true}>
                 <Card raised={true} sx={{maxWidth: 300, backgroundColor: 'primary.main'}}>
@@ -106,18 +106,18 @@ const Services = ({servicesData}) => {
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "services"]'
-  const servicesData = await sanityClient.fetch(query)
+  const serviceData = await sanityClient.fetch(query)
 
-  if (!servicesData.length) {
+  if (!serviceData.length) {
       return {
           props: {
-              servicesData: [],
+              serviceData: [],
           },
       }
   } else {
       return {
           props: {
-              servicesData,
+              serviceData,
           },
       }
   }
