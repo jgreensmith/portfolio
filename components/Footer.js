@@ -11,11 +11,25 @@ export default function Footer() {
         sx={{ background: 'transparent' }}
     >
         <Box p={4} sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Typography variant="body2" color="primary" align="center" sx={{pt: 1}}>
-                {'© '}
-                MCR-Digital 2022
-                {'.'}
-            </Typography>
+            <Box >
+                <Typography variant="body2" color="primary" align="start" sx={{pt: 1}}>
+                    {'© '}
+                    MCR-Digital 2022
+                    {'.'}
+                </Typography>
+                <Typography variant="body2" color="primary" align="start" sx={{pt: 1}}>
+                    Web design by 
+                    <Button 
+                    variant="text" 
+                    sx={{textTransform: 'capitalize'}}
+                    href="https://www.linkedin.com/in/james-greensmith-b808341a4/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    >
+                        James Greensmith
+                    </Button>
+                </Typography>
+            </Box>
             <Box>
                 <Button variant="text" href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry" >
                     Email
