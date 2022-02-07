@@ -139,6 +139,7 @@ const Navbar = (props) => {
                     onClose={handleDrawerToggle}
                     ModalProps={{
                         keepMounted: true, // Better open performance on mobile.
+                        disableScrollLock: true
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },

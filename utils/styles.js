@@ -29,6 +29,7 @@ export const theme = createTheme({
     },
     secondary: {
       main: '#ff0080',
+      light: 'rgba(2, 29, 55, 0.7)',
       dark: '#283593',
       text: '#021d37'
     },
@@ -152,7 +153,7 @@ export const HeroBox = styled('div')({
 });
 
 export const HeroSlide = styled('div')({
-  minHeight: '85vh',
+  minHeight: '90vh',
   backgroundSize: 'cover',
   backgroundPosition: '50%',
   display: 'flex',

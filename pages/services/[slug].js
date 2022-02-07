@@ -1,23 +1,42 @@
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Layout from "../../components/Layout";
 import { sanityClient, urlFor } from "../../sanity";
+import { HeroBox, HeroSlide } from "../../utils/styles";
+import {PortableText} from '@portabletext/react';
+
 
 
 
 const Service = ({ body, title, mainImage }) => {
   console.log({ body, title, mainImage });
   return (
-    <Layout title="Service" >
-
-      <Container maxWidth='lg'
-        sx={{
-          my: 4
-        }}
+    <Layout title={title} >
+      <HeroBox
       >
 
-        Butt
-      </Container>
+
+        <HeroSlide
+          sx={{
+            backgroundImage: `url("${urlFor(mainImage).quality(90).fit("min").url()}")`
+          }}
+          >
+            <Container maxWidth='lg' 
+              sx={{ 
+                backgroundColor: 'secondary.light', 
+                p: 2
+            }}
+            >
+              <Typography variant="h1" color='primary.light'>{title}</Typography>
+              <Typography variant='body1' color='primary.light' sx={{mr: 2}}>
+                <PortableText
+                  value={body}
+                />
+              </Typography>
+              
+            </Container>
+        </HeroSlide>
       
+      </HeroBox>
 
     </Layout>
   )
