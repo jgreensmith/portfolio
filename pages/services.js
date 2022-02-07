@@ -1,14 +1,14 @@
-import { Container, Grid, Paper, Toolbar, Typography } from "@mui/material";
+import { CardActionArea, CardContent, CardMedia, Container, Grid, Link, Paper, Slide, Toolbar, Typography } from "@mui/material";
 import Layout from "../components/Layout";
 //import UnstyledButtonCustom from "../components/svg/ButtonSvg";
 import { ProfileImg } from "../utils/styles";
 
 
-export default function About(props) {
+export default function Services(props) {
   return (
-    <Layout title="About" >
+    <Layout title="Services" >
 
-        <Container maxWidth='lg'>
+      <Container maxWidth='lg'>
 
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} >
@@ -60,6 +60,32 @@ export default function About(props) {
           
         </Grid>
       </Container>
+      <Grid container spacing={2} sx={{backgroundColor: 'primary.main'}}>
+          <Grid item xs={12} vs={6} sm={4} >
+            <Slide direction="up" in={true}>
+              <Card sx={{maxWidth: 300}}>
+                <Link href="#">
+                  <CardActionArea>
+                    <CardMedia
+
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Schmocial schmedia
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Lizards are a widespread group of squamate reptiles, with over 6,000
+                        species, ranging across all continents except Antarctica
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Link>
+              </Card>   
+
+            </Slide>
+          </Grid>
+      </Grid>
+
     </Layout>
   )
 }

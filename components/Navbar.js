@@ -58,7 +58,7 @@ const Navbar = (props) => {
     
 
     const links = {
-        about: "About",
+        services: "Services",
         portfolio: "Portfolio",
     }
 
