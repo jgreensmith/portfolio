@@ -102,6 +102,7 @@ export const PortfolioImg = styled("img")({
   width: '100%',
   height: '100%',
   maxWidth: '300px',
+  maxHeight: '300px',
 });
 export const ProfileImg = styled("img")({
   borderRadius: '50%',

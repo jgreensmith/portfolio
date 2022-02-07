@@ -18,16 +18,17 @@ const Portfolio = ({ portfolioData }) => {
                                         elevation={8}
                                         sx={{
                                             position: 'relative', 
-                                            backgroundImage: `url("${urlFor(portfolio.portfolioImage).quality(90).fit("min").url()}")`,
+                                            backgroundImage: `url("${urlFor(portfolio.portfolioImage).size(600, 600).quality(90).fit("min").url()}")`,
                                             backgroundSize: 'cover',
                                             backgroundPosition: 'center center !important',
                                             maxWidth: '300px',
+                                            maxHeight: '300px',
                                             margin: 2,
                                         }}
 
                                     >
                                         <PortfolioImg
-                                            src={urlFor(portfolio.portfolioImage).quality(90).fit("min").url()}
+                                            src={urlFor(portfolio.portfolioImage).size(600, 600).quality(90).fit("min").url()}
                                             alt={portfolio.alt}
                                             loading="lazy"
                                         />

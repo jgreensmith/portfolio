@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper';
+import NextLink from 'next/link';
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -7,7 +8,7 @@ import 'swiper/css/effect-fade';
 import { HeroBox, HeroSlide } from '../utils/styles';
 import { urlFor } from '../sanity';
 import SvgButton from './svg/ButtonSvg';
-import { Typography } from '@mui/material';
+import { Typography, Link, Slide } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 //import Footer from './Footer';
@@ -42,26 +43,36 @@ const Hero = ({ heroData }) => {
                             backgroundImage: `url("${urlFor(hero.heroImage).quality(90).fit("min").url()}")`
                         }} 
                     >
-                        <SvgButton sx={{mr: '9px', mb: 3}} >
-                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                About MCR Digital
-                            </Typography>
-                        </SvgButton>
-                        <SvgButton sx={{mr: '9px', mb: 3}} >
-                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                Partnered Companies
-                            </Typography>
-                        </SvgButton>
-                        <SvgButton sx={{mr: '9px', mb: 3}} href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" >
-                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                Instagram 
-                            </Typography>
-                        </SvgButton>
-                        <SvgButton sx={{mr: '9px', mb: 3}}  >
-                            <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                Contact Us
-                            </Typography>
-                        </SvgButton>
+                        
+                            <NextLink href="/services">
+                                <SvgButton sx={{mr: '9px', mb: 3}} >
+                                    <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
+                                        About MCR Digital
+                                    </Typography>
+                                </SvgButton>
+                            </NextLink>
+                            <NextLink href="/portfolio">
+                                <SvgButton sx={{mr: '9px', mb: 3}} >
+                                    <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
+                                        Partnered Companies
+                                    </Typography>
+                                </SvgButton>
+                            </NextLink>
+                            <Link href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" >
+                                <SvgButton sx={{mr: '9px', mb: 3}}  >
+                                    <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
+                                        Instagram 
+                                    </Typography>
+                                </SvgButton>
+                            </Link>
+                            <Link href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry">
+                                <SvgButton sx={{mr: '9px', mb: 3}}  >
+                                    <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
+                                        Contact Us
+                                    </Typography>
+                                </SvgButton>
+                            </Link>
+                        
                         
                     </HeroSlide>
                 </SwiperSlide>

@@ -12,12 +12,12 @@ export default function Footer() {
     >
         <Box p={4} sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Box >
-                <Typography variant="body2" color="primary" align="start" sx={{pt: 1}}>
+                <Typography variant="body2" color="primary" align="left" sx={{pt: 1}}>
                     {'© '}
                     MCR-Digital 2022
                     {'.'}
                 </Typography>
-                <Typography variant="body2" color="primary" align="start" sx={{pt: 1}}>
+                <Typography variant="body2" color="primary" align="left" sx={{pt: 1}}>
                     Web design by 
                     <Button 
                     variant="text" 
