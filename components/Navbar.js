@@ -23,7 +23,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box } from '@mui/system';
-import { MainButton } from '../utils/styles';
+import { LogoImg, MainButton } from '../utils/styles';
 
 
 
@@ -98,7 +98,8 @@ const Navbar = (props) => {
                         </IconButton>
                         <NextLink href="/">
                             <MainButton >
-                                MCR Digital
+                                <LogoImg src='/images/logo.jpeg'/>
+                                
                             </MainButton>
                         </NextLink>
                         <List sx={{ display: { sm: "flex", xs: "none" }, ml: 'auto', mr: 3 }}>

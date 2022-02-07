@@ -22,7 +22,7 @@ export const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#021d37',
+      main: '#060728',
       light: '#f1f3fa',
       dark: '#b4004e',
       text: '#fff'
@@ -90,6 +90,9 @@ export const ThumbnailButton = styled(Button)(({ theme }) => ({
 }));
 
 //images
+export const LogoImg = styled("img")({
+  maxWidth: '110px',
+});
 
 export const StyledImg = styled("img")({
   width: '100%',
