@@ -1,10 +1,12 @@
 import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Link, Paper, Slide, Toolbar, Typography } from "@mui/material";
 import Layout from "../components/Layout";
+import { sanityClient, urlFor } from "../sanity";
 //import UnstyledButtonCustom from "../components/svg/ButtonSvg";
 import { ProfileImg } from "../utils/styles";
 
 
-export default function Services(props) {
+const Services = ({servicesData}) => {
+  console.log(servicesData);
   return (
     <Layout title="Services" >
 
@@ -72,21 +74,18 @@ export default function Services(props) {
         }}
       >
         <Grid container spacing={2} >
-            <Grid item xs={12} vs={6} sm={4} >
+          {servicesData.map((service, index) => (
+            <Grid item key={index} xs={12} vs={6} sm={4} >
               <Slide direction="up" in={true}>
-                <Card sx={{maxWidth: 300, backgroundColor: 'primary.main'}}>
-                  <Link href="#">
+                <Card raised={true} sx={{maxWidth: 300, backgroundColor: 'primary.main'}}>
+                  <Link href={`/services/${service.slug.current}`}>
                     <CardActionArea>
-                      <CardMedia
-
-                      />
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="div" color='primary.light' >
-                          Schmocial schmedia
+                          {service.title}
                         </Typography>
                         <Typography variant="body2" color="primary.light">
-                          Lizards are a widespread group of squamate reptiles, with over 6,000
-                          species, ranging across all continents except Antarctica
+                          {service.description}
                         </Typography>
                       </CardContent>
                     </CardActionArea>
@@ -95,6 +94,8 @@ export default function Services(props) {
 
               </Slide>
             </Grid>
+          ))}
+            
         </Grid>
       </Container>
       
@@ -102,3 +103,24 @@ export default function Services(props) {
     </Layout>
   )
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "services"]'
+  const servicesData = await sanityClient.fetch(query)
+
+  if (!servicesData.length) {
+      return {
+          props: {
+              servicesData: [],
+          },
+      }
+  } else {
+      return {
+          props: {
+              servicesData,
+          },
+      }
+  }
+}
+
+export default Services;
