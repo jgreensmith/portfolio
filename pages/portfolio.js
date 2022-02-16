@@ -1,24 +1,31 @@
 import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper } from "@mui/material";
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
-import { sanityClient, urlFor } from "../sanity";
+
 import { Overlay, PortfolioImg } from "../utils/styles";
 
-const Portfolio = ({ portfolioData }) => {
-    console.log(portfolioData);
+const images = [
+    '/images/home-1.jpg',
+    '/images/home-2.jpg',
+    '/images/home-3.jpg',
+    '/images/home-4.jpg',
+  ];
+
+const Portfolio = () => {
+    //console.log(portfolioData);
     return(
         <Layout title="Portfolio">
             <Container maxWidth="lg"  >
                 <Masonry columns={{ xs: 2, sm: 3, md: 4}} spacing={0} sx={{display: 'flex', alignContent: 'center'}} >
-                    {portfolioData.map((portfolio, index) => (
+                    {images.map((image, index) => (
                         <Stack key={index}  >
                             <Slide direction="up" in={true}>
-                                <Link href={portfolio.href} target="_blank" rel="noreferrer" >
+                                <Link href='#' target="_blank" rel="noreferrer" >
                                     <Paper 
                                         elevation={8}
                                         sx={{
                                             position: 'relative', 
-                                            backgroundImage: `url("${urlFor(portfolio.portfolioImage).size(600, 600).quality(90).fit("min").url()}")`,
+                                            backgroundImage: `url("${image}")`,
                                             backgroundSize: 'cover',
                                             backgroundPosition: 'center center !important',
                                             maxWidth: '300px',
@@ -28,8 +35,8 @@ const Portfolio = ({ portfolioData }) => {
 
                                     >
                                         <PortfolioImg
-                                            src={urlFor(portfolio.portfolioImage).size(600, 600).quality(90).fit("min").url()}
-                                            alt={portfolio.alt}
+                                            src={image}
+                                            alt='image'
                                             loading="lazy"
                                         />
                                         
@@ -43,7 +50,7 @@ const Portfolio = ({ portfolioData }) => {
                                                     opacity: 0.8
                                                 }}
                                             >
-                                                {portfolio.alt}
+                                                Link to account
                                             </Typography>
                                         </Overlay>
                                     </Paper>
@@ -59,23 +66,23 @@ const Portfolio = ({ portfolioData }) => {
     
 }
 
-export const getServerSideProps = async () => {
-    const query = '*[_type == "portfolio"]'
-    const portfolioData = await sanityClient.fetch(query)
+// export const getServerSideProps = async () => {
+//     const query = '*[_type == "portfolio"]'
+//     const portfolioData = await sanityClient.fetch(query)
 
-    if (!portfolioData.length) {
-        return {
-            props: {
-                portfolioData: [],
-            },
-        }
-    } else {
-        return {
-            props: {
-                portfolioData,
-            },
-        }
-    }
-}
+//     if (!portfolioData.length) {
+//         return {
+//             props: {
+//                 portfolioData: [],
+//             },
+//         }
+//     } else {
+//         return {
+//             props: {
+//                 portfolioData,
+//             },
+//         }
+//     }
+// }
 
 export default Portfolio;

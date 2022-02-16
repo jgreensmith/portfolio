@@ -6,12 +6,18 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
 import { HeroBox, HeroSlide } from '../utils/styles';
-import { urlFor } from '../sanity';
 import SvgButton from './svg/ButtonSvg';
 import { Typography, Link, Slide } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 //import Footer from './Footer';
+
+const images = [
+    '/images/home-1.jpg',
+    '/images/home-2.jpg',
+    '/images/home-3.jpg',
+    '/images/home-4.jpg',
+];
 
 
 const params = {
@@ -28,26 +34,26 @@ const params = {
     }
 };
 
-const Hero = ({ heroData }) => {
-    console.log(heroData);
+const Hero = () => {
+    //console.log(heroData);
     return (
         <HeroBox>
 
             <Swiper modules={[EffectFade, Autoplay]} {...params} effect='fade'>
-            {heroData.map((hero, index) => (
+            {images.map((image, index) => (
                 <SwiperSlide key={index}>
                     <HeroSlide
                         role="img"
-                        aria-label={hero.alt}
+                        //aria-label={hero.alt}
                         sx={{
-                            backgroundImage: `url("${urlFor(hero.heroImage).quality(90).fit("min").url()}")`
+                            backgroundImage: `url("${image}")`
                         }} 
                     >
                         
                             <NextLink href="/services">
                                 <SvgButton sx={{mr: '9px', mb: 3}} >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                        About MCR Digital
+                                        About 
                                     </Typography>
                                 </SvgButton>
                             </NextLink>

@@ -14,10 +14,10 @@ export default function Footer() {
             <Box >
                 <Typography variant="body2" color="primary" align="left" sx={{pt: 1}}>
                     {'© '}
-                    MCR-Digital 2022
+                    JG Custom Commerce 2022
                     {'.'}
                 </Typography>
-                <Typography variant="body2" color="primary" align="left" sx={{pt: 1}}>
+                {/* <Typography variant="body2" color="primary" align="left" sx={{pt: 1}}>
                     Web design by 
                     <Button 
                     variant="text" 
@@ -28,7 +28,7 @@ export default function Footer() {
                     >
                         James Greensmith
                     </Button>
-                </Typography>
+                </Typography> */}
             </Box>
             <Box>
                 <Button variant="text" href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry" >

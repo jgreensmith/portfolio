@@ -58,7 +58,7 @@ const Navbar = (props) => {
     
 
     const links = {
-        services: "Services",
+        about: "About",
         portfolio: "Portfolio",
     }
 
@@ -98,7 +98,7 @@ const Navbar = (props) => {
                         </IconButton>
                         <NextLink href="/">
                             <MainButton >
-                                <LogoImg src='/images/logo.jpeg'/>
+                                JG Custom Commerce
                                 
                             </MainButton>
                         </NextLink>
