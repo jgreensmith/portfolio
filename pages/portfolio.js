@@ -1,7 +1,7 @@
 import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper } from "@mui/material";
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
-import sanityClient from '../sanity';
+import {sanityClient} from '../sanity';
 
 import { Overlay, PortfolioImg } from "../utils/styles";
 
