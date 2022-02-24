@@ -1,7 +1,7 @@
 import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper } from "@mui/material";
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
-import {sanityClient} from '../sanity';
+import {sanityClient, urlFor} from '../sanity';
 
 import { Overlay, PortfolioImg } from "../utils/styles";
 
@@ -18,15 +18,15 @@ const Portfolio = ({portfolioData}) => {
         <Layout title="Portfolio">
             <Container maxWidth="lg"  >
                 <Masonry columns={{ xs: 2, sm: 3, md: 4}} spacing={0} sx={{display: 'flex', alignContent: 'center'}} >
-                    {images.map((image, index) => (
+                    {portfolioData.map((portfolio, index) => (
                         <Stack key={index}  >
                             <Slide direction="up" in={true}>
-                                <Link href='#' target="_blank" rel="noreferrer" >
+                                <Link href={portfolio.href} target="_blank" rel="noreferrer" >
                                     <Paper 
                                         elevation={8}
                                         sx={{
                                             position: 'relative', 
-                                            backgroundImage: `url("${image}")`,
+                                            backgroundImage: `url("${urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}")`,
                                             backgroundSize: 'cover',
                                             backgroundPosition: 'center center !important',
                                             maxWidth: '300px',
@@ -36,8 +36,8 @@ const Portfolio = ({portfolioData}) => {
 
                                     >
                                         <PortfolioImg
-                                            src={image}
-                                            alt='image'
+                                            src={urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}
+                                            alt={portfolio.title}
                                             loading="lazy"
                                         />
                                         
@@ -51,7 +51,7 @@ const Portfolio = ({portfolioData}) => {
                                                     opacity: 0.8
                                                 }}
                                             >
-                                                Link to account
+                                                {portfolio.title}
                                             </Typography>
                                         </Overlay>
                                     </Paper>

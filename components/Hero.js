@@ -60,21 +60,21 @@ const Hero = () => {
                             <NextLink href="/portfolio">
                                 <SvgButton sx={{mr: '9px', mb: 3}} >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                        Partnered Companies
+                                        Portfolio
                                     </Typography>
                                 </SvgButton>
                             </NextLink>
                             <Link href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" >
                                 <SvgButton sx={{mr: '9px', mb: 3}}  >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                        Instagram 
+                                        Github
                                     </Typography>
                                 </SvgButton>
                             </Link>
                             <Link href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry">
                                 <SvgButton sx={{mr: '9px', mb: 3}}  >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                        Contact Us
+                                        Contact Me
                                     </Typography>
                                 </SvgButton>
                             </Link>
