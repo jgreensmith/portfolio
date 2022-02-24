@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper } from "@mui/material";
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
+import sanityClient from '../sanity';
 
 import { Overlay, PortfolioImg } from "../utils/styles";
 
@@ -11,8 +12,8 @@ const images = [
     '/images/home-4.jpg',
   ];
 
-const Portfolio = () => {
-    //console.log(portfolioData);
+const Portfolio = ({portfolioData}) => {
+    console.log(portfolioData);
     return(
         <Layout title="Portfolio">
             <Container maxWidth="lg"  >
@@ -66,23 +67,23 @@ const Portfolio = () => {
     
 }
 
-// export const getServerSideProps = async () => {
-//     const query = '*[_type == "portfolio"]'
-//     const portfolioData = await sanityClient.fetch(query)
+export const getServerSideProps = async () => {
+    const query = '*[_type == "portfolio"]'
+    const portfolioData = await sanityClient.fetch(query)
 
-//     if (!portfolioData.length) {
-//         return {
-//             props: {
-//                 portfolioData: [],
-//             },
-//         }
-//     } else {
-//         return {
-//             props: {
-//                 portfolioData,
-//             },
-//         }
-//     }
-// }
+    if (!portfolioData.length) {
+        return {
+            props: {
+                portfolioData: [],
+            },
+        }
+    } else {
+        return {
+            props: {
+                portfolioData,
+            },
+        }
+    }
+}
 
 export default Portfolio;

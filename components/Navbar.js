@@ -98,7 +98,7 @@ const Navbar = (props) => {
                         </IconButton>
                         <NextLink href="/">
                             <MainButton >
-                                JG Custom Commerce
+                                James Greensmith
                                 
                             </MainButton>
                         </NextLink>

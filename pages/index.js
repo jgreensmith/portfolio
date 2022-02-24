@@ -7,8 +7,6 @@ const Home = () => {
   return (
     <Layout title="Home">
       <Hero />
-      
-
     </Layout>
   )
 }

@@ -12,7 +12,7 @@ const Layout = ({ children, title }) => {
         <React.Fragment>
             <Head>
                 <meta charSet="utf-8" />
-                <title>{`${title} | MCR Digitass`}</title>
+                <title>{`${title} | James Greensmith`}</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="viewport"
