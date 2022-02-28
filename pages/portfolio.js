@@ -2,8 +2,13 @@ import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, L
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
 import {sanityClient, urlFor} from '../sanity';
+import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser';
+import InfoIcon from '@mui/icons-material/Info';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
-import { Overlay, PortfolioImg } from "../utils/styles";
+import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioImg } from "../utils/styles";
+
+import styles from '../styles/Portfolio.module.css';
 
 const images = [
     '/images/home-1.jpg',
@@ -21,41 +26,42 @@ const Portfolio = ({portfolioData}) => {
                     {portfolioData.map((portfolio, index) => (
                         <Stack key={index}  >
                             <Slide direction="up" in={true}>
-                                <Link href={portfolio.href} target="_blank" rel="noreferrer" >
-                                    <Paper 
-                                        elevation={8}
-                                        sx={{
-                                            position: 'relative', 
-                                            backgroundImage: `url("${urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}")`,
-                                            backgroundSize: 'cover',
-                                            backgroundPosition: 'center center !important',
-                                            maxWidth: '300px',
-                                            maxHeight: '300px',
-                                            margin: 2,
-                                        }}
-
-                                    >
+                                {/* <Link href={portfolio.href} target="_blank" rel="noreferrer" > */}
+                                   <PortfolioCard className={styles.card}>
+                                       <CardBanner className={styles.cardBanner} sx={{top: '-30px'}} >
+                                            <Typography 
+                                                component="h5" 
+                                                sx={{
+                                                   
+                                                    color: '#fff',
+                                                    
+                                                    opacity: 0.8
+                                                }}
+                                            >
+                                                {portfolio.title}
+                                            </Typography>
+                                       </CardBanner>
                                         <PortfolioImg
                                             src={urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}
                                             alt={portfolio.title}
                                             loading="lazy"
                                         />
                                         
-                                        <Overlay>
-                                            <Typography 
-                                                component="h5" 
-                                                sx={{
-                                                    p: 2,
-                                                    color: '#fff',
-                                                    backgroundColor: 'background.dark',
-                                                    opacity: 0.8
-                                                }}
-                                            >
-                                                {portfolio.title}
-                                            </Typography>
-                                        </Overlay>
-                                    </Paper>
-                                </Link>
+                                        <CardBanner
+                                            className={styles.cardBanner}
+                                            sx={{
+                                                justifyContent: 'space-evenly',
+                                                color: '#fff',
+                                                bottom: '-20px',
+                                                transform: 'translateY(20px)'   
+                                            }}
+                                        >
+                                            <InfoIcon />
+                                            <GitHubIcon />
+                                            <OpenInBrowserIcon />
+                                        </CardBanner>
+                                    </PortfolioCard>
+                                {/* </Link> */}
                             </Slide>   
                         </Stack>                     
                     ))}

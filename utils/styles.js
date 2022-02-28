@@ -1,6 +1,6 @@
 import { Button, Card, ImageListItemBar } from '@mui/material';
 import { createTheme, styled } from '@mui/material/styles';
-import { Box } from '@mui/system';
+import { Box, display } from '@mui/system';
 
 export const theme = createTheme({
   typography: {
@@ -134,22 +134,28 @@ export const FilterBox = styled(Box)(({ theme }) => ({
   border: '2px solid black',
  
 }));
-export const Overlay = styled('div')(({theme}) => ({
-  opacity: 0,
-  ":hover": {
-    opacity: 1
-  },
-  width: '100%',
-  //height: '100%',
-  float: 'left',
-  bottom: 0,
-  right: 0,
-  zIndex: 1000,
-  position: 'absolute',
-  textAlign: 'center',
-  paddingTop: '100%',
-}));
 
+export const PortfolioCard = styled(Card)(({theme}) => ({
+  width: '300px',
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+
+}));
+export const CardBanner = styled('div')(({theme}) => ({
+  width: '95%',
+  position: 'absolute',
+  marginBottom:  '5px',
+  padding: '7px 10px',
+  display: 'flex',
+  alignItems: 'center',
+  background: theme.palette.background.dark,
+  backdropFilter: 'blur(10px)',
+  borderRadius: '10px',
+  transform: 'translateY(-20px)',
+  opacity: 0,
+  transition: 'all 0.4s'
+}));
 //hero section
 
 export const HeroBox = styled('div')({
