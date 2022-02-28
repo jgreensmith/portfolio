@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper } from "@mui/material";
+import { CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper, Grid } from "@mui/material";
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
 import {sanityClient, urlFor} from '../sanity';
@@ -6,7 +6,7 @@ import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser';
 import InfoIcon from '@mui/icons-material/Info';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioImg } from "../utils/styles";
+import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../utils/styles";
 
 import styles from '../styles/Portfolio.module.css';
 
@@ -22,9 +22,9 @@ const Portfolio = ({portfolioData}) => {
     return(
         <Layout title="Portfolio">
             <Container maxWidth="lg"  >
-                <Masonry columns={{ xs: 1, sm: 2, md: 4}} spacing={5} sx={{display: 'flex', alignContent: 'center'}} >
+                <Grid container spacing={20} >
                     {portfolioData.map((portfolio, index) => (
-                        <Stack key={index}  >
+                        <Grid item key={index} xs={1} sm={2} md={3} sx={{m: '20px'}}>
                             <Slide direction="up" in={true}>
                                
                                 <PortfolioCard className={styles.card}>
@@ -39,11 +39,13 @@ const Portfolio = ({portfolioData}) => {
                                             {portfolio.title}
                                         </Typography>
                                     </CardBanner>
-                                    <PortfolioImg
-                                        src={urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}
-                                        alt={portfolio.title}
-                                        loading="lazy"
-                                    />
+                                    <PortfolioCardBody>
+                                        <PortfolioImg
+                                            src={urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}
+                                            alt={portfolio.title}
+                                            loading="lazy"
+                                            />
+                                    </PortfolioCardBody>
                                     
                                     <CardBanner
                                         className={styles.cardBanner}
@@ -63,10 +65,11 @@ const Portfolio = ({portfolioData}) => {
                                     </CardBanner>
                                 </PortfolioCard>
                             </Slide>   
-                        </Stack>                     
+                            
+                        </Grid>                    
                     ))}
                     
-                </Masonry>
+                </Grid>
             </Container>
         </Layout>
     )

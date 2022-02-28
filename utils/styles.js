@@ -115,6 +115,7 @@ export const PortfolioCard = styled('div')(({theme}) => ({
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
+  margin: '20px',
 
 }));
 export const PortfolioCardBody = styled('div')(({theme}) => ({
