@@ -1,4 +1,4 @@
 .card:hover .cardBanner {
   transform: translateY(0px);
-  opacity: 1;
+  opacity: 0.8;
 }

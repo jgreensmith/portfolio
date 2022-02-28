@@ -22,46 +22,46 @@ const Portfolio = ({portfolioData}) => {
     return(
         <Layout title="Portfolio">
             <Container maxWidth="lg"  >
-                <Masonry columns={{ xs: 2, sm: 3, md: 4}} spacing={0} sx={{display: 'flex', alignContent: 'center'}} >
+                <Masonry columns={{ xs: 1, sm: 2, md: 4}} spacing={5} sx={{display: 'flex', alignContent: 'center'}} >
                     {portfolioData.map((portfolio, index) => (
                         <Stack key={index}  >
                             <Slide direction="up" in={true}>
-                                {/* <Link href={portfolio.href} target="_blank" rel="noreferrer" > */}
-                                   <PortfolioCard className={styles.card}>
-                                       <CardBanner className={styles.cardBanner} sx={{top: '-30px'}} >
-                                            <Typography 
-                                                component="h5" 
-                                                sx={{
-                                                   
-                                                    color: '#fff',
-                                                    
-                                                    opacity: 0.8
-                                                }}
-                                            >
-                                                {portfolio.title}
-                                            </Typography>
-                                       </CardBanner>
-                                        <PortfolioImg
-                                            src={urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}
-                                            alt={portfolio.title}
-                                            loading="lazy"
-                                        />
-                                        
-                                        <CardBanner
-                                            className={styles.cardBanner}
+                               
+                                <PortfolioCard className={styles.card}>
+                                    <CardBanner className={styles.cardBanner} sx={{top: '-30px', transform: 'translateY(-20px)'}} >
+                                        <Typography 
+                                            component="h5" 
                                             sx={{
-                                                justifyContent: 'space-evenly',
                                                 color: '#fff',
-                                                bottom: '-20px',
-                                                transform: 'translateY(20px)'   
+                                                opacity: 0.8
                                             }}
                                         >
-                                            <InfoIcon />
-                                            <GitHubIcon />
+                                            {portfolio.title}
+                                        </Typography>
+                                    </CardBanner>
+                                    <PortfolioImg
+                                        src={urlFor(portfolio.mainImage).size(600, 600).quality(90).fit("min").url()}
+                                        alt={portfolio.title}
+                                        loading="lazy"
+                                    />
+                                    
+                                    <CardBanner
+                                        className={styles.cardBanner}
+                                        sx={{
+                                            justifyContent: 'space-evenly',
+                                            color: '#fff',
+                                            bottom: '-20px',
+                                            transform: 'translateY(20px)',
+                                                
+                                        }}
+                                    >
+                                        <InfoIcon />
+                                        <GitHubIcon />
+                                        <Link href={portfolio.href} target="_blank" rel="noreferrer" >
                                             <OpenInBrowserIcon />
-                                        </CardBanner>
-                                    </PortfolioCard>
-                                {/* </Link> */}
+                                        </Link>
+                                    </CardBanner>
+                                </PortfolioCard>
                             </Slide>   
                         </Stack>                     
                     ))}

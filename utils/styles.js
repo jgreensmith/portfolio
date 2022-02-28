@@ -98,49 +98,27 @@ export const StyledImg = styled("img")({
   width: '100%',
 });
 
-export const PortfolioImg = styled("img")({
+export const PortfolioImg = styled("img")(({ theme }) => ({
   width: '100%',
-  height: '100%',
-  maxWidth: '300px',
-  maxHeight: '300px',
-});
+  borderRadius: '10px',
+  boxShadow: theme.shadows[12]
+}));
 export const ProfileImg = styled("img")({
   borderRadius: '50%',
 });
-export const CartImg = styled("img")({
-  maxWidth: '80px',
-  //minHeight: '100%',
 
-});
 
 //containers
 
-export const FooterBox = styled('div')({
-  
-});
-
-export const FilterBox = styled(Box)(({ theme }) => ({
-  
-  background: theme.palette.secondary.main,
-  ":hover": {
-    background: 'inherit',
-  },
-  width: 135,
-  height: 62,
-  boxSizing: 'border-box',
-  position: 'absolute',
-  boxShadow: theme.shadows[12],
-  borderRadius: 7,
-  border: '2px solid black',
- 
-}));
-
-export const PortfolioCard = styled(Card)(({theme}) => ({
+export const PortfolioCard = styled('div')(({theme}) => ({
   width: '300px',
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
 
+}));
+export const PortfolioCardBody = styled('div')(({theme}) => ({
+  width: '300px'
 }));
 export const CardBanner = styled('div')(({theme}) => ({
   width: '95%',
@@ -152,7 +130,7 @@ export const CardBanner = styled('div')(({theme}) => ({
   background: theme.palette.background.dark,
   backdropFilter: 'blur(10px)',
   borderRadius: '10px',
-  transform: 'translateY(-20px)',
+  
   opacity: 0,
   transition: 'all 0.4s'
 }));
