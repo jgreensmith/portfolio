@@ -1,14 +1,14 @@
-import { CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper, Grid } from "@mui/material";
-import Layout from "../components/Layout";
+import { CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper, Grid, Tooltip } from "@mui/material";
+import Layout from "../../components/Layout";
 import Masonry from '@mui/lab/Masonry';
-import {sanityClient, urlFor} from '../sanity';
+import {sanityClient, urlFor} from '../../sanity';
 import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser';
 import InfoIcon from '@mui/icons-material/Info';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../utils/styles";
+import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../../utils/styles";
 
-import styles from '../styles/Portfolio.module.css';
+import styles from '../../styles/Portfolio.module.css';
 
 const images = [
     '/images/home-1.jpg',
@@ -56,13 +56,22 @@ const Portfolio = ({portfolioData}) => {
                                                 
                                         }}
                                     >
-                                        <InfoIcon />
-                                        <Link href={portfolio.github} target="_blank" rel="noreferrer" >
-                                            <GitHubIcon color="#fff" />
-                                        </Link>
-                                        <Link href={portfolio.href} target="_blank" rel="noreferrer" >
-                                            <OpenInBrowserIcon />
-                                        </Link>
+                                        
+                                        <Tooltip title="Project summary">
+                                            <Link href={`/portfolio/${portfolio.slug.current}`} target="_blank" rel="noreferrer" >
+                                                <InfoIcon />                                            
+                                            </Link>
+                                        </Tooltip>
+                                        <Tooltip title="See GitHub repository">
+                                            <Link href={portfolio.github} target="_blank" rel="noreferrer" >
+                                                <GitHubIcon color="#fff" />
+                                            </Link>
+                                        </Tooltip>
+                                        <Tooltip title="Visit website">
+                                            <Link href={portfolio.href} target="_blank" rel="noreferrer" >
+                                                <OpenInBrowserIcon />
+                                            </Link>
+                                        </Tooltip>
                                     </CardBanner>
                                 </PortfolioCard>
                             </Slide>   
