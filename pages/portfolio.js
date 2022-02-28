@@ -51,14 +51,15 @@ const Portfolio = ({portfolioData}) => {
                                         className={styles.cardBanner}
                                         sx={{
                                             justifyContent: 'space-evenly',
-                                            color: '#fff',
                                             bottom: '-20px',
                                             transform: 'translateY(20px)',
                                                 
                                         }}
                                     >
                                         <InfoIcon />
-                                        <GitHubIcon />
+                                        <Link href={portfolio.github} target="_blank" rel="noreferrer" >
+                                            <GitHubIcon color="#fff" />
+                                        </Link>
                                         <Link href={portfolio.href} target="_blank" rel="noreferrer" >
                                             <OpenInBrowserIcon />
                                         </Link>
