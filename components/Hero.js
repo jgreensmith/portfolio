@@ -50,7 +50,7 @@ const Hero = () => {
                         }} 
                     >
                         
-                            <NextLink href="/services">
+                            <NextLink href="/about">
                                 <SvgButton sx={{mr: '9px', mb: 3}} >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                         About 
@@ -64,17 +64,24 @@ const Hero = () => {
                                     </Typography>
                                 </SvgButton>
                             </NextLink>
-                            <Link href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" >
+                            <Link href="https://github.com/jgreensmith" target="_blank" rel="noreferrer" >
                                 <SvgButton sx={{mr: '9px', mb: 3}}  >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                         Github
                                     </Typography>
                                 </SvgButton>
                             </Link>
-                            <Link href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry">
+                            <Link href="mailto:jgreensmith13@gmail.com">
                                 <SvgButton sx={{mr: '9px', mb: 3}}  >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
                                         Contact Me
+                                    </Typography>
+                                </SvgButton>
+                            </Link>
+                            <Link href="https://www.linkedin.com/in/james-greensmith-b808341a4/" target="_blank" rel="noreferrer" >
+                                <SvgButton sx={{mr: '9px', mb: 3}}  >
+                                    <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
+                                        LinkedIn
                                     </Typography>
                                 </SvgButton>
                             </Link>

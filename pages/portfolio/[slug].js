@@ -1,11 +1,40 @@
+import { Container, Typography } from "@mui/material";
 import Layout from "../../components/Layout";
-import { sanityClient } from "../../sanity";
+import { sanityClient, urlFor } from "../../sanity";
+import { HeroBox, HeroSlide } from "../../utils/styles";
+import {PortableText} from '@portabletext/react';
+
 
 const Summary = ({title, mainImage, body}) => {
     console.log({title, mainImage, body});
     return (
         <Layout title={title}>
-<h1>summary</h1>
+        <HeroBox
+            >
+
+
+                <HeroSlide
+                    sx={{
+                    backgroundImage: `url("${urlFor(mainImage).quality(90).fit("min").url()}")`
+                    }}
+                    >
+                    <Container maxWidth='lg' 
+                        sx={{ 
+                        backgroundColor: 'secondary.light', 
+                        p: 2
+                    }}
+                    >
+                        <Typography variant="h1" color='primary.light'>{title}</Typography>
+                        <Typography variant='body1' color='primary.light' sx={{mr: 2}}>
+                        <PortableText
+                            value={body}
+                        />
+                        </Typography>
+                        
+                    </Container>
+                </HeroSlide>
+            
+            </HeroBox>
         </Layout>
     )
 }

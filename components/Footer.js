@@ -1,6 +1,6 @@
 import { IconButton, Button, Container, Grid, Paper, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
@@ -14,7 +14,7 @@ export default function Footer() {
             <Box >
                 <Typography variant="body2" color="primary" align="left" sx={{pt: 1}}>
                     {'© '}
-                    JG Custom Commerce 2022
+                    James Greensmith 2022
                     {'.'}
                 </Typography>
                 {/* <Typography variant="body2" color="primary" align="left" sx={{pt: 1}}>
@@ -31,13 +31,13 @@ export default function Footer() {
                 </Typography> */}
             </Box>
             <Box>
-                <Button variant="text" href="mailto:digitalmcr@hotmail.com?subject=MCR Digital enquiry" >
+                <Button variant="text" href="mailto:jgreensmith13@gmail.com" >
                     Email
                 </Button>
-                <IconButton href="https://www.instagram.com/digital.mcr/" target="_blank" rel="noreferrer" color="primary" >
-                    <InstagramIcon  />
+                <IconButton href="https://github.com/jgreensmith" target="_blank" rel="noreferrer" color="primary" >
+                    <GitHubIcon  />
                 </IconButton>   
-                <IconButton href="https://www.linkedin.com/in/d%E2%80%99arcy-o%E2%80%99connor-b730a9152/" target="_blank" rel="noreferrer" color="primary" >
+                <IconButton href="https://www.linkedin.com/in/james-greensmith-b808341a4/" target="_blank" rel="noreferrer" color="primary" >
                     <LinkedInIcon  />
                 </IconButton> 
             </Box>
