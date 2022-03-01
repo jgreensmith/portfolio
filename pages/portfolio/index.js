@@ -58,17 +58,17 @@ const Portfolio = ({portfolioData}) => {
                                     >
                                         
                                         <Tooltip title="Project summary">
-                                            <Link href={`/portfolio/${portfolio.slug.current}`} target="_blank" rel="noreferrer" >
+                                            <Link href={`/portfolio/${portfolio.slug.current}`} target="_blank" rel="noreferrer"  color="primary.light" >
                                                 <InfoIcon />                                            
                                             </Link>
                                         </Tooltip>
                                         <Tooltip title="See GitHub repository">
-                                            <Link href={portfolio.github} target="_blank" rel="noreferrer" >
-                                                <GitHubIcon color="#fff" />
+                                            <Link href={portfolio.github} target="_blank" rel="noreferrer" color="primary.light" >
+                                                <GitHubIcon />
                                             </Link>
                                         </Tooltip>
                                         <Tooltip title="Visit website">
-                                            <Link href={portfolio.href} target="_blank" rel="noreferrer" >
+                                            <Link href={portfolio.href} target="_blank" rel="noreferrer"  color="primary.light" >
                                                 <OpenInBrowserIcon />
                                             </Link>
                                         </Tooltip>
