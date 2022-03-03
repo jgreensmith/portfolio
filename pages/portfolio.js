@@ -1,24 +1,38 @@
-import { CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper, Grid, Tooltip } from "@mui/material";
-import Layout from "../../components/Layout";
+
+import { CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper, Grid, Tooltip, Button, IconButton } from "@mui/material";
+import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
-import {sanityClient, urlFor} from '../../sanity';
+import {sanityClient, urlFor} from '../sanity';
 import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser';
 import InfoIcon from '@mui/icons-material/Info';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import Modal from "react-modal";
+import { useRouter } from "next/router";
+import NextLink from 'next/link'
 
-import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../../utils/styles";
 
-import styles from '../../styles/Portfolio.module.css';
+import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../utils/styles";
 
-const images = [
-    '/images/home-1.jpg',
-    '/images/home-2.jpg',
-    '/images/home-3.jpg',
-    '/images/home-4.jpg',
-  ];
+import styles from '../styles/Portfolio.module.css';
+import { useState } from "react";
 
+
+Modal.setAppElement("#__next");
+
+
+
+ 
+
+ 
 const Portfolio = ({portfolioData}) => {
-    console.log(portfolioData);
+    const router = useRouter();
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalContent, setModalContent] = useState([]);
+    const updateContent = (portfolio) => {
+        setModalContent([portfolio]);
+        setModalOpen(true);
+    };
+ 
     return(
         <Layout title="Portfolio">
             <Container maxWidth="lg"  >
@@ -58,10 +72,16 @@ const Portfolio = ({portfolioData}) => {
                                     >
                                         
                                         <Tooltip title="Project summary">
-                                            <Link href={`/portfolio/${portfolio.slug.current}`} target="_blank" rel="noreferrer"  color="primary.light" >
-                                                <InfoIcon />                                            
-                                            </Link>
+                                            {/* <NextLink
+                                                href={`/portfolio/?info=${portfolio.modal}`}
+                                                as={`/portfolio/info/${portfolio.modal}`}
+                                            > */}
+                                                <IconButton onClick={() => updateContent(portfolio)} color="info" >
+                                                    <InfoIcon />                                            
+                                                </IconButton>
+                                            {/* </NextLink> */}
                                         </Tooltip>
+                                        
                                         <Tooltip title="See GitHub repository">
                                             <Link href={portfolio.github} target="_blank" rel="noreferrer" color="primary.light" >
                                                 <GitHubIcon />
@@ -75,12 +95,27 @@ const Portfolio = ({portfolioData}) => {
                                     </CardBanner>
                                 </PortfolioCard>
                             </Slide>   
-                            
-                        </Grid>                    
+                                          
+                        </Grid>    
                     ))}
                     
                 </Grid>
             </Container>
+            <Modal 
+                isOpen={modalOpen}
+                onRequestClose={() => router.push("/portfolio")}
+
+            >
+                {modalContent.map((content) => {
+                    return (
+                        <>
+                        <h1>{content.title}</h1>
+                        
+                        </>
+                        
+                    )
+                })}                          
+            </Modal>
         </Layout>
     )
     

@@ -3,6 +3,7 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 
 import 'nprogress/nprogress.css';
+
 import { useEffect } from 'react';
 
 Router.events.on('routeChangeStart', () => NProgress.start());

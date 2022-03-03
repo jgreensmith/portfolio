@@ -40,6 +40,9 @@ export const theme = createTheme({
       default: '#f1f3fa',
       dark: '#021d37'
     },
+    info:{
+      main: '#f1f3fa'
+    }
   },
   breakpoints: {
     values: {
