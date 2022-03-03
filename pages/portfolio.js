@@ -8,7 +8,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Modal from "react-modal";
 import { useRouter } from "next/router";
-import NextLink from 'next/link'
+import {PortableText} from '@portabletext/react';
 
 
 import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../utils/styles";
@@ -16,13 +16,7 @@ import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, Portfo
 import styles from '../styles/Portfolio.module.css';
 import { useState } from "react";
 
-
 Modal.setAppElement("#__next");
-
-
-
- 
-
  
 const Portfolio = ({portfolioData}) => {
     const router = useRouter();
@@ -71,15 +65,10 @@ const Portfolio = ({portfolioData}) => {
                                         }}
                                     >
                                         
-                                        <Tooltip title="Project summary">
-                                            {/* <NextLink
-                                                href={`/portfolio/?info=${portfolio.modal}`}
-                                                as={`/portfolio/info/${portfolio.modal}`}
-                                            > */}
-                                                <IconButton onClick={() => updateContent(portfolio)} color="info" >
-                                                    <InfoIcon />                                            
-                                                </IconButton>
-                                            {/* </NextLink> */}
+                                        <Tooltip title="Project summary">  
+                                            <IconButton onClick={() => updateContent(portfolio)} color="info" >
+                                                <InfoIcon />                                            
+                                            </IconButton>   
                                         </Tooltip>
                                         
                                         <Tooltip title="See GitHub repository">
@@ -103,15 +92,26 @@ const Portfolio = ({portfolioData}) => {
             </Container>
             <Modal 
                 isOpen={modalOpen}
-                onRequestClose={() => router.push("/portfolio")}
-
+                onRequestClose={() => setModalOpen(false)}
+                className={styles.modal}
+                overlayClassName={styles.overlay}
             >
                 {modalContent.map((content) => {
                     return (
-                        <>
-                        <h1>{content.title}</h1>
+                        <Container maxWidth='lg' 
+                            sx={{ 
+                                backgroundColor: 'secondary.light', 
+                                p: 2
+                            }}
+                        >
+                        <Typography variant="h1" color='primary.light'>{content.title}</Typography>
+                        <Typography variant='body1' color='primary.light' sx={{mr: 2}}>
+                            <PortableText
+                            value={content.body}
+                            />
+                        </Typography>
                         
-                        </>
+                      </Container>
                         
                     )
                 })}                          
