@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import {PortableText} from '@portabletext/react';
 
 
-import { CardActionFooter, CardBanner, CardTitle, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../utils/styles";
+import { CardActionFooter, CardBanner, CardTitle, CenteredGrid, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../utils/styles";
 
 import styles from '../styles/Portfolio.module.css';
 import { useState } from "react";
@@ -29,10 +29,10 @@ const Portfolio = ({portfolioData}) => {
  
     return(
         <Layout title="Portfolio">
-            <Container maxWidth="lg"  >
-                <Grid container spacing={20} >
+            <Container maxWidth="lg">
+                <CenteredGrid container spacing={5} sx={{pt: 6}} >
                     {portfolioData.map((portfolio, index) => (
-                        <Grid item key={index} xs={1} sm={2} md={3} sx={{m: '20px'}}>
+                        <CenteredGrid item key={index} xs={12} sm={6} md={4} >
                             <Slide direction="up" in={true}>
                                
                                 <PortfolioCard className={styles.card}>
@@ -85,10 +85,10 @@ const Portfolio = ({portfolioData}) => {
                                 </PortfolioCard>
                             </Slide>   
                                           
-                        </Grid>    
+                        </CenteredGrid>    
                     ))}
                     
-                </Grid>
+                </CenteredGrid>
             </Container>
             <Modal 
                 isOpen={modalOpen}

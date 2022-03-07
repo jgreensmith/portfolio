@@ -1,4 +1,4 @@
-import { Button, Card, ImageListItemBar } from '@mui/material';
+import { Button, Card, Grid, ImageListItemBar } from '@mui/material';
 import { createTheme, styled } from '@mui/material/styles';
 import { Box, display } from '@mui/system';
 
@@ -113,12 +113,18 @@ export const ProfileImg = styled("img")({
 
 //containers
 
+export const CenteredGrid = styled(Grid)({
+  display: 'flex', 
+  justifyContent: 'center', 
+  alignItems: 'center'
+});
+
 export const PortfolioCard = styled('div')(({theme}) => ({
   width: '300px',
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
-  margin: '20px',
+  margin: '10px',
 
 }));
 export const PortfolioCardBody = styled('div')(({theme}) => ({
