@@ -146,9 +146,9 @@ export const CardBanner = styled('div')(({theme}) => ({
 }));
 //hero section
 
-export const HeroBox = styled('div')({
-  position: 'relative !important'
-});
+// export const HeroBox = styled('div')({
+//   position: 'relative !important'
+// });
 
 export const HeroSlide = styled('div')({
   minHeight: '90vh',
@@ -164,3 +164,6 @@ export const HeroSlide = styled('div')({
   width: '100%',
 });
 
+export const HeroBox = styled('div')({
+  backgroundColor: "#330033",
+});

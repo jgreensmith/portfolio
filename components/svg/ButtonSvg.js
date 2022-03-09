@@ -65,8 +65,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
 
   &:focus,
   &.${buttonUnstyledClasses.focusVisible} {
-    outline: 4px solid ${theme.palette.primary.main};
-    outline-offset: 2px;
+    outline: none;
   }
 
   &.${buttonUnstyledClasses.active} { 
