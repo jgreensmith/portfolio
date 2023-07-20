@@ -8,25 +8,57 @@ import InfoIcon from '@mui/icons-material/Info';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Modal from "react-modal";
 import { useRouter } from "next/router";
-import {PortableText} from '@portabletext/react';
+import { PortableText } from '@portabletext/react';
+import {getImageDimensions} from '@sanity/asset-utils'
+import urlBuilder from '@sanity/image-url'
+
+
 
 
 import { CardActionFooter, CardBanner, CardTitle, CenteredGrid, Overlay, PortfolioCard, PortfolioCardBody, PortfolioImg } from "../utils/styles";
 
 import styles from '../styles/Portfolio.module.css';
 import { useState } from "react";
+import { useEffect } from "react";
 
 Modal.setAppElement("#__next");
  
 const Portfolio = ({portfolioData}) => {
-    const router = useRouter();
+    //const router = useRouter();
     const [modalOpen, setModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState([]);
     const updateContent = (portfolio) => {
         setModalContent([portfolio]);
         setModalOpen(true);
     };
- 
+    useEffect(() => {
+        document.body.style.overflow = modalOpen ? 'hidden': 'unset';
+     }, [modalOpen]);
+
+    const SampleImageComponent = ({value, isInline}) => {
+        return (
+        <div style={{
+            padding: "30px"
+        }}>
+
+          <img
+            src={urlFor(value).size(600, 800).quality(90).fit("max").url()}
+            alt={value.alt || ' '}
+            loading="lazy"
+            
+            />
+            </div>
+        )
+      }
+      
+      const components = {
+        types: {
+          image: SampleImageComponent,
+          // Any other custom types you have in your content
+          // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
+        },
+      }
+
     return(
         <Layout title="Portfolio">
             <Container maxWidth="lg">
@@ -101,13 +133,14 @@ const Portfolio = ({portfolioData}) => {
                         <Container maxWidth='lg' 
                             sx={{ 
                                 backgroundColor: 'secondary.light', 
-                                p: 2
+                                p: 2,
                             }}
                         >
                         <Typography variant="h1" color='primary.light'>{content.title}</Typography>
                         <Typography variant='body1' color='primary.light' sx={{mr: 2}}>
                             <PortableText
                             value={content.body}
+                            components={components}
                             />
                         </Typography>
                         
