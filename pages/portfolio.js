@@ -1,5 +1,5 @@
 
-import { CardActionArea, CardMedia, Container, Slide, Stack, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper, Grid, Tooltip, Button, IconButton } from "@mui/material";
+import { CardActionArea, CardMedia, Container, Slide, Divider, List, Stack, ListItemButton, Typography, Link, ImageList, ImageListItem, ImageListItemBar, Paper, Toolbar, Grid, Tooltip, Button, IconButton } from "@mui/material";
 import Layout from "../components/Layout";
 import Masonry from '@mui/lab/Masonry';
 import {sanityClient, urlFor} from '../sanity';
@@ -23,14 +23,43 @@ import { useEffect } from "react";
 
 Modal.setAppElement("#__next");
  
-const Portfolio = ({portfolioData}) => {
+const Portfolio = ({portfolioData, categories}) => {
     //const router = useRouter();
     const [modalOpen, setModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState([]);
+    const [catOpen, setCatOpen] = useState(false);
+    const [productList, setProductList] = useState(portfolioData);
+
+
+
     const updateContent = (portfolio) => {
         setModalContent([portfolio]);
         setModalOpen(true);
     };
+
+    //if categories create allcategories array
+    const allCategories = categories ? [{"title": 'All'}, ...categories] : null;
+
+    const catFilter = (cat) => {
+        if(cat.title === 'All') {
+            setProductList(portfolioData);
+            return;
+        }
+        //match product ref (if there is one) with cat id
+        const filteredProducts = portfolioData.filter(product => product?.categories[0]?._ref === cat._id);
+        setProductList(filteredProducts);
+    };
+
+    const handleCatToggle = () => {
+        setCatOpen(!catOpen)
+    };
+
+    const drawCatFilter = (cat) => {
+        setCatOpen(false);
+        catFilter(cat);
+    };
+
+
     useEffect(() => {
         document.body.style.overflow = modalOpen ? 'hidden': 'unset';
      }, [modalOpen]);
@@ -42,7 +71,7 @@ const Portfolio = ({portfolioData}) => {
         }}>
 
           <img
-            src={urlFor(value).size(600, 800).quality(90).fit("max").url()}
+            src={urlFor(value).width(600).quality(90).fit("min").url()}
             alt={value.alt || ' '}
             loading="lazy"
             
@@ -61,9 +90,29 @@ const Portfolio = ({portfolioData}) => {
 
     return(
         <Layout title="Portfolio">
-            <Container maxWidth="lg">
-                <CenteredGrid container spacing={5} sx={{pt: 6}} >
-                    {portfolioData.map((portfolio, index) => (
+            <Container maxWidth="xl">
+                <Grid container spacing={1}>
+                <Grid item xs={12} sm={3} sx={{display: {xs: 'none', sm: 'block'}}}>
+            <Paper sx={{ width: 260, p: 1, m: 1, mt: 7, position: 'fixed'}}>
+                <Toolbar>
+                    <Typography variant='h6'>
+                        Filter by Catergory
+                    </Typography>
+                </Toolbar>
+                <Divider />
+                <List>
+                    {allCategories.map((cat, index) => (
+                        <ListItemButton onClick={() => catFilter(cat)} key={index}>
+                            {cat.title}
+                        </ListItemButton>
+                    ))}                
+                </List>
+            </Paper>
+        </Grid>
+        <Grid item xs={12} sm={9} >
+
+                            <CenteredGrid container spacing={5} sx={{pt: 6}} >
+                    {productList.map((portfolio, index) => (
                         <CenteredGrid item key={index} xs={12} sm={6} md={4} >
                             <Slide direction="up" in={true}>
                                
@@ -103,16 +152,16 @@ const Portfolio = ({portfolioData}) => {
                                             </IconButton>   
                                         </Tooltip>
                                         
-                                        <Tooltip title="See GitHub repository">
+                                        { portfolio.github && <Tooltip title="See GitHub repository">
                                             <Link href={portfolio.github} target="_blank" rel="noreferrer" color="primary.light" >
                                                 <GitHubIcon />
                                             </Link>
-                                        </Tooltip>
-                                        <Tooltip title="Visit website">
+                                        </Tooltip>}
+                                        {portfolio.href && <Tooltip title="Visit website">
                                             <Link href={portfolio.href} target="_blank" rel="noreferrer"  color="primary.light" >
                                                 <OpenInBrowserIcon />
                                             </Link>
-                                        </Tooltip>
+                                        </Tooltip>}
                                     </CardBanner>
                                 </PortfolioCard>
                             </Slide>   
@@ -121,6 +170,9 @@ const Portfolio = ({portfolioData}) => {
                     ))}
                     
                 </CenteredGrid>
+                </Grid>
+                </Grid>
+
             </Container>
             <Modal 
                 isOpen={modalOpen}
@@ -156,7 +208,9 @@ const Portfolio = ({portfolioData}) => {
 
 export const getServerSideProps = async () => {
     const query = '*[_type == "portfolio"]'
+    const catQuery = '*[_type == "category"]'
     const portfolioData = await sanityClient.fetch(query)
+    const categories = await sanityClient.fetch(catQuery)
 
     if (!portfolioData.length) {
         return {
@@ -168,6 +222,7 @@ export const getServerSideProps = async () => {
         return {
             props: {
                 portfolioData,
+                categories
             },
         }
     }

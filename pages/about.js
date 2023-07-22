@@ -4,7 +4,7 @@ import { ProfileImg } from "../utils/styles";
 
 const About = () => {
     return(
-    <Layout title="About" >
+    <Layout title="About me" >
 
         <Container maxWidth='lg'
         sx={{
@@ -38,9 +38,10 @@ const About = () => {
                         sx={{ p: 4, mr: 2, mt: 2 }}
                     >
                         <Typography variant='h1'>
-                        React JS Developer
+                         Cyber Security 
                         </Typography>
                         {/* <UnstyledButtonCustom /> */}
+                        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="462fcd3e-dcbf-4c41-8196-743ff27b37b7" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                         <Typography variant='body1' >
                         I am a self-taught Javascript/ React web developer. I have hosted two React websites for clients and a number of my own personal projects to develop my skills. I am proficient in: React, Node.Js, GitHub and using dev-tools to test Javascript and be creative with CSS/SASS. Furthermore, I am constantly looking to better my skills to utilise the DevOps process to ensure the quality of my projects, and to expand my knowledge of web development.
 I have been studying web development and working on projects alongside my jobs. I have used my free time to better my skills and work towards my career goal of creating high quality reusable code and becoming a professional Web Developer. 
