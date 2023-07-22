@@ -38,13 +38,12 @@ const About = () => {
                         sx={{ p: 4, mr: 2, mt: 2 }}
                     >
                         <Typography variant='h1'>
-                         Cyber Security 
+                         Professional Summary 
                         </Typography>
                         {/* <UnstyledButtonCustom /> */}
                         <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="462fcd3e-dcbf-4c41-8196-743ff27b37b7" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                         <Typography variant='body1' >
-                        I am a self-taught Javascript/ React web developer. I have hosted two React websites for clients and a number of my own personal projects to develop my skills. I am proficient in: React, Node.Js, GitHub and using dev-tools to test Javascript and be creative with CSS/SASS. Furthermore, I am constantly looking to better my skills to utilise the DevOps process to ensure the quality of my projects, and to expand my knowledge of web development.
-I have been studying web development and working on projects alongside my jobs. I have used my free time to better my skills and work towards my career goal of creating high quality reusable code and becoming a professional Web Developer. 
+                        Dedicated and enthusiastic self-taught programmer passionate about joining the effort to maintain the confidentiality, integrity and availability of peoples data. Knowledgeable about the TCP/IP and OSI model, ports and protocols, NIST frameworks and have an aspiration to implement security controls to ensure compliance with International regulations related to data protection. A strong background in software development, with experience implementing security controls at the application layer. Proficient in the use of the command-line interface, SQL, Python, Javascript, HTML. Strong communication and problem-solving skills.
                         </Typography>
 
 

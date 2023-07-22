@@ -21,7 +21,7 @@ const Hero = () => {
                             <NextLink href="/about">
                                 <SvgButton sx={{mr: '9px', mb: 3}} >
                                     <Typography color='#fff' variant='h6' sx={{textTransform: 'capitalize'}} >
-                                        About 
+                                        About Me
                                     </Typography>
                                 </SvgButton>
                             </NextLink>
