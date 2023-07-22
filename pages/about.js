@@ -43,7 +43,7 @@ const About = () => {
                         {/* <UnstyledButtonCustom /> */}
                         <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="462fcd3e-dcbf-4c41-8196-743ff27b37b7" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                         <Typography variant='body1' >
-                        Dedicated and enthusiastic self-taught programmer passionate about joining the effort to maintain the confidentiality, integrity and availability of peoples data. Knowledgeable about the TCP/IP and OSI models, ports and protocols, NIST frameworks and have an aspiration to implement security controls to ensure compliance with International regulations related to data protection. A strong background in software development, with experience implementing security controls at the application layer. Proficient in the use of the command-line interface, SQL, Python, Javascript, HTML. Strong communication and problem-solving skills.
+                        Dedicated and enthusiastic self-taught programmer passionate about joining the effort to maintain the confidentiality, integrity and availability of peoples data. Knowledgeable about the TCP/IP and OSI models, ports and protocols, NIST frameworks and have an aspiration to implement security controls to ensure compliance with International regulations related to data protection. A strong background in software development, with experience implementing security controls at the application layer. Proficient in the use of the command-line interface, SQL, Python, Javascript and HTML. Strong communication and problem-solving skills.
                         </Typography>
 
 
